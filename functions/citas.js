@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 let citas = ["N/A"];
 const dayms = 1000 * 60 * 60 * 24; // 24 hours in milliseconds
 console.log("main");
