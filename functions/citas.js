@@ -2,9 +2,9 @@ const fetch = require("node-fetch");
 let citas = ["N/A"];
 const dayms = 1000 * 60 * 60 * 24; // 24 hours in milliseconds
 console.log("main");
+let citasjson = process.env.CITASJSON || "/citas.json";
 
-  (async () {
-    let citasjson = process.env.CITASJSON || "/citas.json";
+(async function () {   
     citas = JSON.parse(await fetch(citasjson));  
     console.log(`read ${citas.length} citas`);    
   })();
@@ -16,5 +16,5 @@ console.log("main");
 		return {
 			statusCode: 200,
 			body: cita
-		};
+    }
 	}
