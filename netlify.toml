@@ -4,4 +4,5 @@ functions = "./functions"
 [[redirects]]
 from = "/cita"
 to = "/.netlify/functions/citas"
-status = 301
+status = 200
+
