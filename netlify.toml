@@ -2,7 +2,6 @@
 functions = "./functions"
 
 [[redirects]]
-from = "/"
+from = "/cita"
 to = "/.netlify/functions/citas"
 status = 301
-
