@@ -10,6 +10,5 @@
   "author": "PAL BCN <palbcn@yahoo.com>",
   "license": "MIT",
   "dependencies": {
-    "node-fetch": "^3.2.4"
   }
 }
