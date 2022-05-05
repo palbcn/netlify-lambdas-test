@@ -62,19 +62,26 @@ and then visit
 
 if you want to debug your function code, we need to start the server in inspection mode, and start a debugger. The next instructions are for using vscode.
 
-So, prepare `package.json` with a new entry in `"scripts":` 
-
-    "debug": "netlify functions:serve --inspect",
-
-and a new `"configurations":` entry in your `launch.json`
+So, create a new `"configurations":` entry in your `launch.json`
 
     {
       "name": "Launch Netlify",
       "type": "pwa-node",
       "request": "launch",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "debug"],
-      "skipFiles": ["<node_internals>/**"]
+      "runtimeArgs": [
+        "--inspect"
+      ],
+      "program": "${workspaceFolder}\\node_modules\\netlify-cli\\bin\\run",
+      "args": [
+        "functions:serve"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ]
     }
 
 now you can launch this configuration with breakpoints in your functions code.
@@ -82,5 +89,10 @@ now you can launch this configuration with breakpoints in your functions code.
 
 ## deploy
 
+    git commit -a -m "commit message"
+    git push
+
 ## test
+
+
 
