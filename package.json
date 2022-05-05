@@ -5,8 +5,7 @@
   "type": "module",
   "main": "index.html",
   "scripts": {
-    "dev": "netlify dev",
-    "debug": "netlify dev --inspect"
+    "dev": "netlify dev"
   },
   "keywords": [],
   "author": "PAL BCN <palbcn@yahoo.com>",
