@@ -7,11 +7,15 @@ and completed with some guai examples.
 ## setup
 
 create a `project` directory
-with a `package.json` with added `"type":"module"`
+initialize a `package.json` with
 
-create local git repository with `git init` and a remote repo in _github_
+   npm init -y
 
-create a _netlify_ site with automated deploy from the _github_ repo
+edit `package.json` and add `"type":"module"`
+
+create a git repo and a remote _github_ repo
+
+register in netlify and create a _netlify_ site with automated deploy from your _github_ repo
 
 and install the local netlify `npm --global install netlify-cli`
 
@@ -45,11 +49,11 @@ to test your new function you need to start a server
 
 either start a local dev server
 
-    netlify dev
+    start netlify dev
 
 or just a local functions dev server (which might be more agile, without the overload of serving and watching html content)
 
-    netlify functions:serve
+    start netlify functions:serve
 
 
 and then visit
@@ -60,9 +64,11 @@ and then visit
 
 ## local debug
 
-if you want to debug your function code, we need to start the server in inspection mode, and start a debugger. The next instructions are for using vscode.
+if you want to debug your function code, we need to start the server in inspection mode, and start a debugger. 
 
-So, create a new `"configurations":` entry in your `launch.json`
+The next instructions are for using **vscode**.
+
+Create a new `"configurations":` entry in your `.vscode/launch.json`
 
     {
       "name": "Launch Netlify",
@@ -89,8 +95,13 @@ now you can launch this configuration with breakpoints in your functions code.
 
 ## deploy
 
+commit your changes to git and push them to your remote repo
+
     git commit -a -m "commit message"
     git push
+    
+you can now point your browser to your netlify site and see the deployed web and functions
+
 
 ## test
 
