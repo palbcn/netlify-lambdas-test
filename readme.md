@@ -102,8 +102,11 @@ commit your changes to git and push them to your remote repo
     
 you can now point your browser to your netlify site and see the deployed web and functions
 
+`https://citas-celebres-ji.netlify.app/.netlify/functions/citas`
+
 
 ## test
+
 
 
 

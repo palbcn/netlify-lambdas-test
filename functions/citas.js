@@ -9,12 +9,28 @@ export async function handler(event, context) {
   if (wantRandom)
     todayidx = Math.floor(Math.random() * citas.length);
 
-  let cita = `<h1>"${citas[todayidx]}"</h1><p>PA for JI at ${todayidx} for ${wantRandom ? "a random day" : "today"}.</p>`;
-  return {
+  let todaycita = citas[todayidx];
+  let citahtml = `<h1>"${todaycita}"</h1><p>PA for JI at ${todayidx} for ${wantRandom ? "a random day" : "today"}.</p>`;
+  let responsehtml = {
     statusCode: 200,
     headers: {
       "Content-Type": "text/html; charset=utf-8"
     },
-    body: cita
+    body: citahtml
   }
+  let responsejson = {
+    statusCode: 200,
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      cita: todaycita,
+      meta: {
+        src: "PA for JI",
+        at: todayidx,
+        for: wantRandom ? "a random day" : "today"
+      }
+    })
+  }
+  return event.headers.accept.includes("json") ? responsejson : responsehtml;
 }
