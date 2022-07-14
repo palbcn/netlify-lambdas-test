@@ -1,6 +1,6 @@
 
 export async function handler(event, context) {
-  let name = event.queryStringParameters["name"] ?? "World";
+  let name = event.queryStringParameters["name"] ?? process.env.MY_NAME ?? "World";
   return {
     statusCode: 200,
     headers: {
