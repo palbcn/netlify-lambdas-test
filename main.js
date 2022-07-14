@@ -53,8 +53,7 @@
   }
 
   whenReady(function () {
-    getJson(".netlify/functions/citas", function (err, data) {
-      let [_, cita, autor] = /(.*)\((.*)\)$/.exec(data.cita)
+    getJson(".netlify/functions/citas", function (err, { cita, autor }) {
       document.getElementById("result").innerHTML = `<h1>${cita}</h1><h2>-- ${autor}</h2>`;
     });
   });

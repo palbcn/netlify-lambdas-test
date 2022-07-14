@@ -8,9 +8,10 @@ export async function handler(event, context) {
   let wantRandom = event.queryStringParameters.random;  // is "random" in the query parameters
 
   let todayidx = wantRandom ? Math.floor(Math.random() * citas.length) : daynum % citas.length;
-  let todaycita = citas[todayidx];
+  let todaycitatxt = citas[todayidx];
+  let [_, cita, autor] = /(.*)\((.*)\)$/.exec(todaycitatxt);
 
-  let citahtml = `<h1>"${todaycita}"</h1><p>PA for JI at ${todayidx} for ${wantRandom ? "a random day" : "today"}.</p>`;
+  let citahtml = `<h1>"${cita}"</h1><h2>${autor}</h2><p>PA for JI at ${todayidx} for ${wantRandom ? "a random day" : "today"}.</p>`;
   let responsehtml = {
     statusCode: 200,
     headers: {
@@ -24,7 +25,8 @@ export async function handler(event, context) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      cita: todaycita,
+      cita,
+      autor,
       meta: {
         src: "PA for JI",
         at: todayidx,
