@@ -36,8 +36,8 @@ export async function handler(event, context) {
     return { statusCode: 501, body: JSON.stringify({ message: "Connection catch", error: e }) }
   }
   try {
-    let id = event.queryParameters
-    let things = await connection.query('SELECT * FROM things', []);
+    let id = event.queryStringParameters["id"] ?? "0"
+    let things = await connection.query('SELECT * FROM things WHERE id=?', [id]);
     result = {
       statusCode: 200,
       headers: {
