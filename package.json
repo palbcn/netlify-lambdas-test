@@ -11,8 +11,9 @@
   "author": "PAL BCN <palbcn@yahoo.com>",
   "license": "MIT",
   "dependencies": {
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "netlify-cli": "^10.9.0"
+
   }
 }
