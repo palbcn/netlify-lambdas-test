@@ -1,15 +1,15 @@
+
 import citas from "../citas.json";
-const dayms = 1000 * 60 * 60 * 24;   // 24 hours in milliseconds
+
+const DAYMS = 1000 * 60 * 60 * 24;   // 24 hours in milliseconds
 
 export async function handler(event, context) {
-  let daynum = Math.floor(Date.now() / dayms);
-  let todayidx = daynum % citas.length;
+  let daynum = Math.floor(Date.now() / DAYMS);
+  let wantRandom = event.queryStringParameters.random;  // is "random" in the query parameters
 
-  let wantRandom = event.queryStringParameters.random;
-  if (wantRandom)
-    todayidx = Math.floor(Math.random() * citas.length);
-
+  let todayidx = wantRandom ? Math.floor(Math.random() * citas.length) : daynum % citas.length;
   let todaycita = citas[todayidx];
+
   let citahtml = `<h1>"${todaycita}"</h1><p>PA for JI at ${todayidx} for ${wantRandom ? "a random day" : "today"}.</p>`;
   let responsehtml = {
     statusCode: 200,

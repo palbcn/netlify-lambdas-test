@@ -1,9 +1,7 @@
 (function () {
-  /**
-     whenReady invokes a callback when DOM is ready (fully loaded)
-     
-     @arg fn function to be invoked when DOM Content is ready
-     
+
+  /** whenReady invokes a callback when DOM is ready (fully loaded)
+      @arg fn function to be invoked when DOM Content is ready    
   */
   function whenReady(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
@@ -13,11 +11,8 @@
     }
   }
 
-  /**
-     showDebug -- send debug information both to console and to #debug page element
-     
-     @arguments all arguments passed along to both console and debug page element
-     
+  /** showDebug -- send debug information both to console and to #debug page element
+      @arguments all arguments passed along to both console and debug page element    
   */
   function showDebug() {
     let n = new Date().toLocaleTimeString("en-GB").slice(0, 8);
@@ -27,12 +22,9 @@
         `<p>${n} ${Array.from(arguments).join(" ")}</p>`);
   };
 
-  /**
-     getJson -- AJAX call, fetches a JSON file thru XHR GET
-     
-     @arg url the json url to get
-     @arg cb  callback(err,json) when completed
-     
+  /** getJson -- AJAX call, fetches a JSON file thru XHR GET
+      @arg url the json url to get
+      @arg cb  callback(err,json) when completed    
   */
   function getJson(url, cb) {
     let request = new XMLHttpRequest();
@@ -61,16 +53,10 @@
   }
 
   whenReady(function () {
-
-    //showDebug("ready");
-
     getJson(".netlify/functions/citas", function (err, data) {
-      let content = data.cita;
-      document.getElementById("result").innerHTML = `<p>${content}</p>`
+      let [_, cita, autor] = /(.*)\((.*)\)$/.exec(data.cita)
+      document.getElementById("result").innerHTML = `<h1>${cita}</h1><h2>-- ${autor}</h2>`;
     });
-
-    //setInterval( ping, 5000);   
-
   });
 
 })(); 
