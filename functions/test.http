@@ -1,4 +1,7 @@
+#############################################################################################
+### when local deployed with vscode launch or npm run
 GET http://localhost:8888/.netlify/functions/testcrypto
+
 
 ###
 GET http://localhost:8888/.netlify/functions/testcrypto?id=FBOZDXIs7GU%2B0fuBsKRzM7sSyaFO%2BHLM2erHJa5bxBkDRttD3dUCmKyDDu8kcur3qOP1%2BArVy%2BRftwZFzOgguShU33VpimmiaqZOxCbrJAI%3D
@@ -14,7 +17,7 @@ content-type: application/json
     "ID": "C07",
     "nom": "LOPEZ",
     "boia": 29,
-    "matricula": "1234BCD"
+    "matricula": "8088GMD"
 }
 
 
@@ -29,3 +32,29 @@ content-type: application/json
 
 ###
 GET http://localhost:8888/.netlify/functions/testsqlite?id=1
+
+#############################################################################################
+
+### after deploy to netlify via push to github
+GET  https://citas-celebres-ji.netlify.app/.netlify/functions/testcrud
+
+
+###
+GET  https://citas-celebres-ji.netlify.app/.netlify/functions/testcrypto?id=1TRC2HyY9NT6RVNO7ZahU3Tod9RlKUoD8M0k77W8q9K3TaBn5fS0FRkY9GRRPBgAK6bSZsOaOgxtfhLjf3sihRWVfJnuXCAjSJmXvYt7%2BzOZTYMEVfSgI1g%2BnVj2U3Mt
+
+
+###
+POST https://citas-celebres-ji.netlify.app/.netlify/functions/testcrypto
+content-type: application/json
+
+{
+    "ID": "C42",
+    "nom": "SMITH",
+    "boia": 12,
+    "matricula": "9876FGH"
+}
+
+
+###
+GET https://citas-celebres-ji.netlify.app/.netlify/functions/testsqlite?id=1
+

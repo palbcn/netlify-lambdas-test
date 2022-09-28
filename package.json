@@ -11,7 +11,8 @@
   "author": "PAL BCN <palbcn@yahoo.com>",
   "license": "MIT",
   "dependencies": {
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "sqlite3": "^5.1.1"
   },
   "devDependencies": {
 
