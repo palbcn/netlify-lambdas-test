@@ -2,14 +2,14 @@
 import mysql from 'mysql';
 import util from 'util';
 
-const thingsTable = 'things';
+const THINGS_TABLE_NAME = 'things';
 const sqlStatements = {
-  selectAll: `SELECT * FROM ${thingsTable} ORDER BY id`,
-  selectOne: `SELECT * FROM ${thingsTable} WHERE id=?`,
-  insertOne: `INSERT INTO ${thingsTable} (name,value) VALUES (?,?)`,
-  updateOne: `UPDATE ${thingsTable} SET name=?, value=? WHERE ID=?`,
-  updateCoalesceOne: `UPDATE ${thingsTable} SET name=COALESCE(?, name), value=COALESCE(?, value), WHERE ID=?`,
-  deleteOne: `DELETE FROM ${thingsTable} WHERE id=?`
+  selectAll: `SELECT * FROM ${THINGS_TABLE_NAME} ORDER BY id`,
+  selectOne: `SELECT * FROM ${THINGS_TABLE_NAME} WHERE id=?`,
+  insertOne: `INSERT INTO ${THINGS_TABLE_NAME} (name,value) VALUES (?,?)`,
+  updateOne: `UPDATE ${THINGS_TABLE_NAME} SET name=?, value=? WHERE ID=?`,
+  updateCoalesceOne: `UPDATE ${THINGS_TABLE_NAME} SET name=COALESCE(?, name), value=COALESCE(?, value), WHERE ID=?`,
+  deleteOne: `DELETE FROM ${THINGS_TABLE_NAME} WHERE id=?`
 }
 
 const connectionConfig = {

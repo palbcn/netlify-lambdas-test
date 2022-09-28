@@ -68,15 +68,15 @@ if you want to debug your function code, we need to start the server in inspecti
 
 The next instructions are for using **vscode**.
 
-Create a new `"configurations":` entry in your `.vscode/launch.json`
+Create a new `"configurations":` entry in your `.vscode/launch.json` with the following content
 
     {
       "name": "Launch Netlify",
-      "type": "pwa-node",
       "request": "launch",
+      "type": "node",
       "runtimeArgs": [
         "--inspect"
-      ],
+      ],      
       "program": "${workspaceFolder}\\node_modules\\netlify-cli\\bin\\run",
       "args": [
         "functions:serve"
@@ -90,7 +90,7 @@ Create a new `"configurations":` entry in your `.vscode/launch.json`
       ]
     }
 
-now you can launch this configuration with breakpoints in your functions code.
+now you can launch this configuration to debug with breakpoints in your functions code.
 
 
 ## deploy
@@ -102,11 +102,17 @@ commit your changes to git and push them to your remote repo
     
 you can now point your browser to your netlify site and see the deployed web and functions
 
-`https://citas-celebres-ji.netlify.app/.netlify/functions/citas`
+`https://your-netlify-site.netlify.app/.netlify/functions/test`
 
 
 ## test
 
+TODO TBD
 
+
+## pending list
+
+[ ] define tests  
+[x] add TO-DOs in readme
 
 

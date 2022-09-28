@@ -1,0 +1,31 @@
+GET http://localhost:8888/.netlify/functions/testcrypto
+
+###
+GET http://localhost:8888/.netlify/functions/testcrypto?id=FBOZDXIs7GU%2B0fuBsKRzM7sSyaFO%2BHLM2erHJa5bxBkDRttD3dUCmKyDDu8kcur3qOP1%2BArVy%2BRftwZFzOgguShU33VpimmiaqZOxCbrJAI%3D
+
+###
+GET http://localhost:8888/.netlify/functions/testsqlite
+
+###
+POST http://localhost:8888/.netlify/functions/testcrypto
+content-type: application/json
+
+{
+    "ID": "C07",
+    "nom": "LOPEZ",
+    "boia": 29,
+    "matricula": "1234BCD"
+}
+
+
+###
+POST http://localhost:8888/.netlify/functions/testsqlite
+content-type: application/json
+
+{
+  "name": "pithing",
+  "value": "3.14"
+}
+
+###
+GET http://localhost:8888/.netlify/functions/testsqlite?id=1
