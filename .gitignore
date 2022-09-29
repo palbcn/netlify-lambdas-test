@@ -4,6 +4,7 @@ node_modules
 scratch
 .netlify
 package-lock.json
+.data
 
 
 
