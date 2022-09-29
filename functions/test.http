@@ -58,3 +58,15 @@ content-type: application/json
 ###
 GET https://citas-celebres-ji.netlify.app/.netlify/functions/testsqlite?id=1
 
+###
+POST https://citas-celebres-ji.netlify.app/.netlify/functions/testsqlite
+content-type: application/json
+
+{
+  "name": "something",
+  "value": "42"
+}
+
+###
+GET https://citas-celebres-ji.netlify.app/.netlify/functions/citas
+Accept: text/html

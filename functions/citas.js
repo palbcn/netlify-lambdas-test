@@ -34,5 +34,6 @@ export async function handler(event, context) {
       }
     })
   }
-  return event.headers.accept.includes("json") ? responsejson : responsehtml;
+  let accept = event.headers?.accept ?? "text/html";
+  return accept.includes("json") ? responsejson : responsehtml;
 }
