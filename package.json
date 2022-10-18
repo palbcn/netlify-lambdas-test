@@ -1,7 +1,7 @@
 {
   "name": "netlify-lambdas-test",
   "version": "1.0.0",
-  "description": "based on the https: //flaviocopes.com/netlify-functions/ tutorial and completed with some guai examples",
+  "description": "based on the https://flaviocopes.com/netlify-functions/ tutorial and completed with some guai examples",
   "type": "module",
   "main": "index.html",
   "scripts": {
@@ -11,10 +11,10 @@
   "author": "PAL BCN <palbcn@yahoo.com>",
   "license": "MIT",
   "dependencies": {
+    "busboy": "^1.6.0",
+    "jspdf": "^2.5.1",
     "mysql": "^2.18.1",
+    "qrcode": "^1.5.1",
     "sqlite3": "^5.1.1"
-  },
-  "devDependencies": {
-
   }
 }

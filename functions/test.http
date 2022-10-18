@@ -1,16 +1,19 @@
 #############################################################################################
 ### when local deployed with vscode launch or npm run
-GET http://localhost:8888/.netlify/functions/testcrypto
-
-
-###
-GET http://localhost:8888/.netlify/functions/testcrypto?id=FBOZDXIs7GU%2B0fuBsKRzM7sSyaFO%2BHLM2erHJa5bxBkDRttD3dUCmKyDDu8kcur3qOP1%2BArVy%2BRftwZFzOgguShU33VpimmiaqZOxCbrJAI%3D
+@local=http://localhost:8888/.netlify/functions/
+@now = {{$datetime iso8601}}
 
 ###
-GET http://localhost:8888/.netlify/functions/testsqlite
+GET {{local}}/test
 
 ###
-POST http://localhost:8888/.netlify/functions/testcrypto
+GET  {{local}}/testcrypto?id=FBOZDXIs7GU%2B0fuBsKRzM7sSyaFO%2BHLM2erHJa5bxBkDRttD3dUCmKyDDu8kcur3qOP1%2BArVy%2BRftwZFzOgguShU33VpimmiaqZOxCbrJAI%3D
+
+###
+GET {{local}}/testsqlite
+
+###
+POST {{local}}/testcrypto
 content-type: application/json
 
 {
@@ -22,7 +25,7 @@ content-type: application/json
 
 
 ###
-POST http://localhost:8888/.netlify/functions/testsqlite
+POST {{local}}/testsqlite
 content-type: application/json
 
 {
@@ -31,20 +34,105 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:8888/.netlify/functions/testsqlite?id=1
+GET {{local}}/testsqlite?id=1
+
+
+###
+GET {{local}}/testsqlite?id=1
+
+###
+GET {{local}}/qrcodes?id=12341234
+
+###
+POST {{local}}/qrcodes
+content-type: application/json
+
+{
+  "name": "something",
+  "value": "42"
+}
+
+###
+POST {{local}}/qrcodes
+Accept: text/html
+content-type: application/json
+
+{
+  "name": "something",
+  "value": 42
+}
+
+
+###
+POST {{local}}/qrcodes
+Accept: image/png
+content-type: application/json
+
+{
+  "name": "something",
+  "value": 42
+}
+
+###
+POST {{local}}/qrcodes
+Accept: application/pdf
+content-type: application/json
+
+{
+  "name": "something",
+  "value": 42
+}
+
+###
+GET {{local}}/qrcodes?id=SS%2BCtowjNBrtfcxuIgfVHJwB49sBCBu8WqiLnTABqzY4tZztav%2BgHG5%2FQlATA%2F1y
+
+
+###
+GET {{local}}/qrcodes?id=SS%2BCtowjNBrtfcxuIgfVHJwB49sBCBu8WqiLnTABqzY4tZztav%2BgHG5%2FQlATA%2F1y
+Accept: text/html
+
+###
+GET {{local}}/qrcodes?id=SS%2BCtowjNBrtfcxuIgfVHJwB49sBCBu8WqiLnTABqzY4tZztav%2BgHG5%2FQlATA%2F1y
+Accept: text/plain
+
+
 
 #############################################################################################
+@remote=https://citas-celebres-ji.netlify.app/.netlify/functions
 
 ### after deploy to netlify via push to github
-GET  https://citas-celebres-ji.netlify.app/.netlify/functions/testcrud
+GET  {{remote}}/testcrud
+
+###
+GET {{remote}}/citas
+
+###
+GET {{remote}}/citas
+Accept: text/html
+
+###
+GET {{remote}}/citas
+Accept: application/json
+
+###
+GET {{remote}}/citas?random=true
+Accept: application/json
+
+###
+POST  {{remote}}/testcrud
+content-type: application/json
+
+{
+    "name": "R2D2"
+}
 
 
 ###
-GET  https://citas-celebres-ji.netlify.app/.netlify/functions/testcrypto?id=1TRC2HyY9NT6RVNO7ZahU3Tod9RlKUoD8M0k77W8q9K3TaBn5fS0FRkY9GRRPBgAK6bSZsOaOgxtfhLjf3sihRWVfJnuXCAjSJmXvYt7%2BzOZTYMEVfSgI1g%2BnVj2U3Mt
+GET {{remote}}/testcrypto?id=1TRC2HyY9NT6RVNO7ZahU3Tod9RlKUoD8M0k77W8q9K3TaBn5fS0FRkY9GRRPBgAK6bSZsOaOgxtfhLjf3sihRWVfJnuXCAjSJmXvYt7%2BzOZTYMEVfSgI1g%2BnVj2U3Mt
 
 
 ###
-POST https://citas-celebres-ji.netlify.app/.netlify/functions/testcrypto
+POST {{remote}}/testcrypto
 content-type: application/json
 
 {
@@ -56,10 +144,10 @@ content-type: application/json
 
 
 ###
-GET https://citas-celebres-ji.netlify.app/.netlify/functions/testsqlite?id=1
+GET {{remote}}/testsqlite?id=1
 
 ###
-POST https://citas-celebres-ji.netlify.app/.netlify/functions/testsqlite
+POST {{remote}}/testsqlite
 content-type: application/json
 
 {
@@ -68,5 +156,5 @@ content-type: application/json
 }
 
 ###
-GET https://citas-celebres-ji.netlify.app/.netlify/functions/citas
-Accept: text/html
+GET {{remote}}/qrcodes?id=SS%2BCtowjNBrtfcxuIgfVHJwB49sBCBu8WqiLnTABqzY4tZztav%2BgHG5%2FQlATA%2F1y
+Accept: text/plain
