@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.html",
   "scripts": {
-    "dev": "netlify dev"
+    "dev": "netlify dev",
+    "deploy": "rem git commit -a -m && rem git push",
+    "post-deploy": "start https://app.netlify.com/sites/citas-celebres-ji/deploys"
   },
   "keywords": [],
   "author": "PAL BCN <palbcn@yahoo.com>",

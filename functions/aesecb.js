@@ -13,7 +13,11 @@ const KEY_SIZE = 128;
 const ALGORITHM = 'AES-128-ECB';
 
 const secret = process.env.QRCODE_SECRET;
-if (!secret) throw new Error("environment not set"); //("QRCODE_SECRET environment variable not set.");
+if (!secret) {
+  console.error("QRCODE_SECRET environment variable not set.");
+  throw new Error("environment not set");
+}
+
 let key = crypto.pbkdf2Sync(secret, '', KEY_ITERATIONS, KEY_SIZE / 8, "sha256");
 
 // the public functions
