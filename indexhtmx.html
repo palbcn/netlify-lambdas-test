@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <script defer src="https://unpkg.com/htmx.org@1.8.2"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Cita JI</title>
+</head>
+
+<body>
+  <section class="fullscreen">
+    <div class="container">
+      <h3>CITA DIARIA JI</h3>
+      <div hx-get="/cita" hx-trigger="load"></div>
+
+    </div>
+  </section>
+
+</body>
+
+</html>

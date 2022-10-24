@@ -11,7 +11,7 @@ export async function handler(event, context) {
   let todaycitatxt = citas[todayidx];
   let [_, cita, autor] = /(.*)\((.*)\)$/.exec(todaycitatxt);
 
-  let citahtml = `<h1>"${cita}"</h1><h2>${autor}</h2><p>PA for JI at ${todayidx} for ${wantRandom ? "a random day" : "today"}.</p>`;
+  let citahtml = `<h1>"${cita}"</h1><h2>-- ${autor}`;
   let responsehtml = {
     statusCode: 200,
     headers: {

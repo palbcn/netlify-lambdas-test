@@ -84,11 +84,10 @@ content-type: application/json
 }
 
 ###
-GET {{local}}/qrcodes?id=SS%2BCtowjNBrtfcxuIgfVHJwB49sBCBu8WqiLnTABqzY4tZztav%2BgHG5%2FQlATA%2F1y
-
+GET {{local}}/qrcodes?id=SS%2BCtowjNBrtfcxuIgfVHJwB49sBCBu8WqiLnTABqzZFmcoK%2FUtlDmqmVlez%2BA2g
 
 ###
-GET {{local}}/qrcodes?id=SS%2BCtowjNBrtfcxuIgfVHJwB49sBCBu8WqiLnTABqzY4tZztav%2BgHG5%2FQlATA%2F1y
+GET {{local}}/qrcodes?id=SS%2BCtowjNBrtfcxuIgfVHJwB49sBCBu8WqiLnTABqzZFmcoK%2FUtlDmqmVlez%2BA2g
 Accept: text/html
 
 ###
@@ -156,5 +155,15 @@ content-type: application/json
 }
 
 ###
-GET {{remote}}/qrcodes?id=SS%2BCtowjNBrtfcxuIgfVHJwB49sBCBu8WqiLnTABqzY4tZztav%2BgHG5%2FQlATA%2F1y
+POST {{remote}}/qrcodes
+Accept: text/html
+content-type: application/json
+
+{
+  "name": "something",
+  "value": 42
+}
+
+###
+GET {{remote}}/qrcodes?id=h0VUPSEgI9RKAecghzrgFX1%2BnNh2O8u91DWxfNN%2FdEzDkjdOQjoheppwUHQafC9x
 Accept: text/plain
